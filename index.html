@@ -47,11 +47,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .hero-top b{font-family:var(--display);font-weight:800;font-size:1.1rem}
 .hero-top span{color:var(--mute);font-size:.9rem;text-align:right}
 .digits{--p:0;display:flex;justify-content:center;align-items:center;gap:.02em;font-family:var(--display);font-weight:800;font-stretch:75%;
-  font-size:min(58vw,40svh);line-height:.8;letter-spacing:-.04em;transform:translateY(calc(var(--p)*-6svh)) scale(calc(1 - var(--p)*.16));will-change:transform}
-.digits span{display:block;padding:0 .06em;margin:0 -.06em;color:transparent;-webkit-background-clip:text;background-clip:text;background-size:100% 320%;background-position:0 calc(var(--p)*100%);
-  animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-.digits span:nth-child(2){animation-delay:.08s}.digits span:nth-child(3){animation-delay:.16s}
-@keyframes rise{from{transform:translateY(.25em);opacity:0}to{transform:none;opacity:1}}
+  font-size:min(58vw,40svh);line-height:.8;letter-spacing:-.04em;transform:translateY(calc(var(--p)*-6svh)) scale(calc(1 - var(--p)*.16));will-change:transform;
+  perspective:4.5em;perspective-origin:50% 40%}
+/* 973 en 3D: cada número es un bloque con volumen (capas .ex generadas por JS) que gira con el scroll y sigue al puntero.
+   La entrada usa la propiedad `translate` para no pisar el `transform` 3D que pone el JS. */
+.digits .dg{display:block;position:relative;transform-style:preserve-3d;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.digits .dg:nth-child(2){animation-delay:.08s}.digits .dg:nth-child(3){animation-delay:.16s}
+.digits .dg:nth-child(1){--exc:#3a0d1b}.digits .dg:nth-child(2){--exc:#0a1626}.digits .dg:nth-child(3){--exc:#17181e}
+.digits .fc{display:block;padding:0 .06em;margin:0 -.06em;color:transparent;-webkit-background-clip:text;background-clip:text;background-size:100% 320%;background-position:0 calc(var(--p)*100%);transform:translateZ(0)}
+.digits .ex{position:absolute;left:0;top:0;display:block;color:var(--exc);pointer-events:none}
+.digits .ex:first-child{color:#0b0b0f}
+.digits.d3d .dg{will-change:transform}
+@keyframes rise{from{translate:0 .25em;opacity:0}to{translate:0 0;opacity:1}}
 .d9{background-image:linear-gradient(170deg,var(--ember) 0%,var(--wine) 38%,#2a0a14 55%,var(--ember) 100%)}
 .d7{background-image:linear-gradient(170deg,#6f86ff 0%,var(--navy) 40%,#14304a 58%,#6f86ff 100%)}
 .d3{background-image:linear-gradient(170deg,#c9c4b8 0%,#1a1b21 42%,#444955 60%,#c9c4b8 100%)}
@@ -212,7 +219,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .rm .flood{clip-path:circle(150% at 50% 100%)}
 .rm .step{opacity:1}.rm .line i{transform:none}
 .rm .cap{position:relative;opacity:1;transform:none;margin-bottom:12px}.rm .caps{height:auto}.rm .dots{display:none}
-.rm .ember i,.rm .digits span,.rm .cue i,.rm .drop,.rm .ripple i{animation:none}
+.rm .ember i,.rm .digits .dg,.rm .cue i,.rm .drop,.rm .ripple i{animation:none}
 .rm .pill{transform:none}
 @media (min-width:800px){
   .stack{max-width:900px}
@@ -230,7 +237,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   <div class="hero-in w">
     <div class="hero-top" id="htop"><b>973 web studio</b><span>Diseño web · Buenos Aires</span></div>
     <div>
-      <h1 class="digits" id="digits" aria-label="973 web studio"><span class="d9" aria-hidden="true">9</span><span class="d7" aria-hidden="true">7</span><span class="d3" aria-hidden="true">3</span></h1>
+      <h1 class="digits" id="digits" aria-label="973 web studio"><span class="dg" aria-hidden="true"><span class="fc d9">9</span></span><span class="dg" aria-hidden="true"><span class="fc d7">7</span></span><span class="dg" aria-hidden="true"><span class="fc d3">3</span></span></h1>
       <p class="say" id="say">nueve · setenta · y tres</p>
     </div>
     <div class="hero-bot"><p>Páginas web con estilo propio, pensadas una por una.</p><span class="cue" aria-hidden="true">Bajá<i></i></span></div>
@@ -377,6 +384,39 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
       else big.appendChild(n);
     });
   })();
+  // 973 en 3D: volumen + giro con el scroll + inclinación con el puntero
+  var dgs=$$('#digits .dg'), hp=0, mx=0, my=0, cx=0, cy=0, tilting=false, settled=false;
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  function place(){
+    var e=ease(cl(hp*1.2,0,1));
+    for(var i=0;i<dgs.length;i++){
+      var s=i-1, a=Math.abs(s);
+      var ry=s*(4+22*e)+cx*16, rx=-4+24*e-cy*10, tz=-a*.3*e+(s===0?.08*e:0), tx=s*.06*e, ty=a*-.04*e;
+      dgs[i].style.transform='translate3d('+tx.toFixed(3)+'em,'+ty.toFixed(3)+'em,'+tz.toFixed(3)+'em) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg)';
+    }
+  }
+  function tilt(){
+    cx+=(mx-cx)*.07; cy+=(my-cy)*.07; place();
+    if(Math.abs(mx-cx)+Math.abs(my-cy)>.002) requestAnimationFrame(tilt); else tilting=false;
+  }
+  if(!rm){
+    var layers=innerWidth<700?10:18, depth=.17;
+    dgs.forEach(function(d){
+      var fc=d.querySelector('.fc');
+      for(var k=layers;k>=1;k--){ var x=document.createElement('span'); x.className='ex'; x.textContent=fc.textContent; x.style.transform='translateZ('+(-k*depth/layers).toFixed(4)+'em)'; d.insertBefore(x,fc); }
+      // Una animación de opacidad activa "aplana" el 3D en Chrome: se quita al terminar la entrada.
+      d.addEventListener('animationend',function(){d.style.animation='none'});
+    });
+    digits.classList.add('d3d');
+    if(window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+      addEventListener('pointermove',function(ev){
+        if(hp>=1) return;
+        mx=ev.clientX/innerWidth*2-1; my=ev.clientY/innerHeight*2-1;
+        if(!tilting){tilting=true;requestAnimationFrame(tilt)}
+      },{passive:true});
+    }
+    place();
+  }
   function prog(el){var r=el.getBoundingClientRect(),t=r.height-innerHeight;return t>0?cl(-r.top/t,0,1):0}
   var gdeg=0,gt=0,ticking=false;
   function frame(){
@@ -384,7 +424,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     var y=window.scrollY||0;
     nav.classList.toggle('on', y>innerHeight*.18);
     if(rm) return;
-    var hp=prog(hero); digits.style.setProperty('--p',hp.toFixed(4));
+    hp=prog(hero); digits.style.setProperty('--p',hp.toFixed(4));
+    if(hp<1||!settled){place();settled=hp>=1}
     var f=(1-cl(hp*7,0,1)).toFixed(3); htop.style.opacity=f; say.style.opacity=f;
     var p=prog(stm), N=words.length;
     for(var i=0;i<N;i++){ var t=cl(p*(N+1.5)-i,0,1); words[i].style.opacity=(.16+.84*t).toFixed(3); }
