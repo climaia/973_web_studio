@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Termo — Calderas y calefacción · Concepto de 973 web studio</title>
+<meta name="description" content="Termo es un concepto de página web para técnicos de calderas hecho por 973 web studio: bajar es girar la perilla, y el tablero del equipo arma el mensaje de WhatsApp.">
+<meta property="og:title" content="Termo — Calderas y calefacción · Concepto de 973 web studio">
+<meta property="og:description" content="Calor cuando lo necesitás. Un concepto de diseño web para técnicos de calefacción y gas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://973webstudio.com.ar/termo/">
+<meta property="og:image" content="https://973webstudio.com.ar/termo/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://973webstudio.com.ar/termo/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B1B2B">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=JetBrains+Mono:wght@500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Termo — concepto de calderas y calefacción de 973 web studio.
+   Idea: la página es el tablero de la caldera. Bajar es girar la perilla: la temperatura sube y la portada se calienta.
+   Después, el cliente usa el tablero para contar la falla y el mensaje de WhatsApp sale armado. */
+:root{
+  --navy:#0B1B2B; --navy2:#13283E; --frost:#BFD9EE; --ember:#FF7A45; --ember2:#E8582A; --amber:#FFB347; --wine:#4A1424;
+  --paper:#ECE9E2; --enamel:#F8F7F3; --ink:#0B1B2B; --mute:#4c5866; --ok:#2BB673;
+  --display:'Space Grotesk','Arial Narrow',Arial,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.5;overflow-x:clip}
+h1,h2,h3,h4,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.w{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.in{max-width:1080px;margin:0 auto}
+.k{font-weight:700;letter-spacing:-.045em;line-height:.92}
+.eb{font-family:var(--mono);font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;font:inherit;font-weight:700;font-size:1.05rem;
+  padding:16px 24px;text-decoration:none;cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.b-ember{background:var(--ember);color:var(--navy)}
+.b-navy{background:var(--navy);color:#fff}
+.b-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+
+/* Cinta de concepto */
+.ribbon{background:#0E0F14;color:#d9dbe0;font-size:.8rem;text-align:center;padding:8px 16px;padding-top:calc(env(safe-area-inset-top,0px) + 8px);font-family:'Instrument Sans',system-ui,sans-serif}
+.ribbon a{color:#fff;font-weight:700}
+
+/* 1. Portada: bajar es girar la perilla */
+.hero{height:230svh;position:relative;background:var(--navy)}
+.hero-in{--p:1;position:sticky;top:0;height:100svh;overflow:hidden;color:#fff;background:var(--navy)}
+.frost{position:absolute;inset:0;opacity:calc(1 - var(--p));pointer-events:none;
+  background:radial-gradient(60% 45% at 15% 10%,rgba(191,217,238,.22),transparent 70%),radial-gradient(50% 40% at 90% 95%,rgba(191,217,238,.12),transparent 70%)}
+.glow{position:absolute;left:50%;top:52%;width:150vmax;aspect-ratio:1;margin:-75vmax 0 0 -75vmax;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,122,69,.55) 0%,rgba(232,88,42,.32) 18%,rgba(74,20,36,.5) 38%,transparent 62%);
+  opacity:var(--p);transform:scale(calc(.55 + .45*var(--p)))}
+.layer{position:relative;z-index:1;height:100%;max-width:1120px;margin:0 auto;display:grid;grid-template-rows:auto auto 1fr auto;gap:10px;
+  padding-top:20px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 22px)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.45rem;letter-spacing:-.04em;text-decoration:none}
+.logo svg{width:18px;height:24px}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;border-radius:999px;padding:7px 12px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(43,182,115,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(43,182,115,0)}100%{box-shadow:0 0 0 0 rgba(43,182,115,0)}}
+.hero h1{font-size:clamp(2.7rem,12.5vw,6.6rem);margin-top:3svh;max-width:9em}
+.hero h1 em{font-style:normal;color:var(--frost);transition:color .4s}
+.hero-in.hot h1 em{color:var(--amber)}
+.dialbox{position:relative;display:grid;place-content:center;justify-items:center;gap:6px;min-height:0}
+.dial{position:relative;width:min(70vw,32svh,440px);aspect-ratio:1}
+.dial svg{display:block;width:100%;height:100%;overflow:visible}
+.trk{fill:none;stroke:rgba(255,255,255,.13);stroke-width:11;stroke-linecap:round}
+.arc{fill:none;stroke:url(#heat);stroke-width:11;stroke-linecap:round}
+.tick{stroke:rgba(255,255,255,.28);stroke-width:2;stroke-linecap:round;transition:stroke .25s}
+.tick.on{stroke:var(--amber)}
+.knob{transform-origin:100px 100px}
+.dread{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}
+.dnum{font-family:var(--display);font-weight:700;font-size:min(19vw,9.5svh,7.2rem);letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.dnum small{font-size:.38em;font-weight:500;opacity:.7;letter-spacing:0;vertical-align:.95em;margin-left:.06em}
+.dstat{position:relative;height:1.3em;margin-top:6px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.dstat span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;transition:opacity .4s}
+.dstat .c{color:var(--frost)}.dstat .h{color:var(--amber);opacity:0}
+.hero-in.hot .dstat .c{opacity:0}.hero-in.hot .dstat .h{opacity:1}
+.steam{position:absolute;left:50%;top:9%;width:60px;height:46px;margin-left:-30px;opacity:calc((var(--p) - .8)*5);pointer-events:none}
+.steam i{position:absolute;bottom:0;width:3px;height:34px;border-radius:3px;background:linear-gradient(to top,rgba(255,255,255,.55),transparent);animation:steam 2.6s ease-in-out infinite}
+.steam i:nth-child(1){left:14px}.steam i:nth-child(2){left:28px;animation-delay:-.9s;height:42px}.steam i:nth-child(3){left:42px;animation-delay:-1.7s}
+@keyframes steam{0%{transform:translateY(8px) scaleY(.6);opacity:0}40%{opacity:1}100%{transform:translateY(-14px) translateX(4px) scaleY(1);opacity:0}}
+.lede{max-width:25em;font-size:1.08rem;color:#c9d6e3}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.hint{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--frost);transition:opacity .4s}
+.hint i{display:block;width:2px;height:16px;background:currentColor;border-radius:2px;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(5px)}}
+.hero-in.hot .hint{opacity:0}
+
+/* 2. El tablero: contá la falla */
+.tab{padding-block:12svh 14svh}
+.tab h2{font-size:clamp(2.5rem,11vw,5.6rem);margin-top:12px;max-width:10em}
+.tab .sub{color:var(--mute);margin-top:14px;max-width:30em;font-size:1.08rem}
+.form{margin-top:6svh;display:grid;gap:28px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:700;font-size:1.05rem;margin-bottom:12px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:block;border-radius:999px;padding:11px 17px;font-weight:600;box-shadow:inset 0 0 0 2px rgba(11,27,43,.28);transition:background .2s,color .2s,box-shadow .2s}
+.chip input:checked+span{background:var(--navy);color:#fff;box-shadow:inset 0 0 0 2px var(--navy)}
+.chip input:focus-visible+span{outline:3px solid var(--ember);outline-offset:3px}
+.field label{display:block;font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.field input{width:100%;max-width:420px;font:inherit;font-weight:500;color:var(--ink);background:rgba(255,255,255,.55);border:0;border-bottom:2px solid rgba(11,27,43,.5);padding:12px 6px;border-radius:0}
+.field input::placeholder{color:#6b7682}
+.field input:focus{outline:none;border-color:var(--ember);background:#fff}
+/* El equipo */
+.dev{background:linear-gradient(180deg,#fff,var(--enamel) 40%,#e6e2d9);border-radius:30px;padding:18px;max-width:460px;
+  box-shadow:0 1px 0 #fff inset,0 30px 60px rgba(11,27,43,.18),0 0 0 1px rgba(11,27,43,.08)}
+.devtop{display:flex;justify-content:space-between;align-items:center;padding:2px 6px 12px;font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;color:#7a8490}
+.devtop .led{display:inline-flex;align-items:center;gap:6px}
+.devtop .led i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);transition:background .3s,box-shadow .3s}
+.devtop .led.err i{background:var(--ember2);box-shadow:0 0 8px var(--ember2)}
+.lcd{background:#08131f;border-radius:16px;padding:16px 18px;color:var(--amber);font-family:var(--mono);box-shadow:inset 0 2px 12px rgba(0,0,0,.6);
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;min-height:118px}
+.lcd .code{font-size:clamp(2.2rem,10vw,2.9rem);font-weight:700;line-height:1;letter-spacing:.02em;text-shadow:0 0 14px rgba(255,179,71,.45)}
+.lcd .txt{grid-column:1/-1;font-size:.82rem;letter-spacing:.12em;color:#ffcf9a;opacity:.9}
+.lcd .ico{display:flex;gap:10px}
+.lcd .ico svg{width:20px;height:24px;fill:currentColor;opacity:.22;transition:opacity .3s}
+.lcd .ico svg.on{opacity:1}
+.lcd.blink .code{animation:blink 1s steps(2) 3}
+@keyframes blink{50%{opacity:.15}}
+.meters{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;align-items:center;margin-top:14px}
+.mano{background:#fff;border-radius:16px;padding:10px 10px 6px;box-shadow:0 0 0 1px rgba(11,27,43,.08)}
+.mano svg{display:block;width:100%;height:auto}
+.mano .z{fill:none;stroke-width:7}
+.needle{transform-origin:60px 62px;transition:transform 1s cubic-bezier(.34,1.4,.5,1)}
+.mano p{text-align:center;font-family:var(--mono);font-size:.74rem;color:var(--mute);margin-top:2px}
+.knobs{display:flex;justify-content:space-around}
+.knobs span{width:min(15vw,62px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d8d3c8 70%);box-shadow:0 6px 12px rgba(11,27,43,.18),0 0 0 1px rgba(11,27,43,.1);position:relative;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.knobs span::after{content:"";position:absolute;left:50%;top:10%;width:3px;height:30%;margin-left:-1.5px;border-radius:2px;background:var(--navy)}
+.chat{background:#0b1a12;border-radius:22px;padding:14px;margin-top:14px}
+.chat .who{display:flex;align-items:center;gap:10px;padding:2px 4px 10px;border-bottom:1px solid rgba(255,255,255,.1);color:#e9edef;font-weight:600;font-size:.92rem}
+.chat .who b{width:32px;height:32px;border-radius:50%;background:var(--ember);display:grid;place-items:center}
+.chat .who b svg{width:12px;height:16px}
+.chat .who small{display:block;color:#8696a0;font-weight:500;font-size:.76rem}
+.bubble{margin:12px 0 2px auto;max-width:94%;background:#005c4b;color:#e9edef;border-radius:14px 4px 14px 14px;padding:10px 12px 18px;font-size:.96rem;line-height:1.4;position:relative;font-family:'Instrument Sans',system-ui,sans-serif}
+.bubble time{position:absolute;right:10px;bottom:4px;font-size:.68rem;color:#9fc2b8}
+.send{margin-top:12px}
+.send .btn{width:100%}
+
+/* 3. Servicios: radiadores que se calientan */
+.svcs{background:var(--navy);color:#fff;padding-block:13svh 12svh}
+.svcs h2{font-size:clamp(2.5rem,11vw,5.6rem);margin-top:12px}
+.svcs .eb{color:var(--amber)}
+.svc{margin:6svh 0 0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
+.svc li{list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:6px 18px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.rad{display:flex;gap:4px;height:46px}
+.rad i{width:9px;border-radius:5px;background:#2a4058;transition:background .5s,box-shadow .5s}
+.svc li.on .rad i{background:var(--ember);box-shadow:0 0 14px rgba(255,122,69,.55)}
+.svc li.on .rad i:nth-child(2){transition-delay:.08s}.svc li.on .rad i:nth-child(3){transition-delay:.16s}.svc li.on .rad i:nth-child(4){transition-delay:.24s}.svc li.on .rad i:nth-child(5){transition-delay:.32s}
+.svc h3{font-weight:700;font-size:clamp(1.35rem,5.4vw,2.1rem);letter-spacing:-.03em;line-height:1.05}
+.svc p{grid-column:2/-1;color:#b9c7d5;max-width:34em}
+.svc span{font-family:var(--mono);font-weight:700;font-size:.74rem;letter-spacing:.06em;color:var(--amber);white-space:nowrap;text-transform:uppercase}
+
+/* 4. Service antes del frío */
+.season{background:var(--ember);color:var(--navy);padding-block:12svh}
+.season h2{font-size:clamp(2.4rem,10.5vw,5.2rem);margin-top:12px;max-width:11em}
+.season .sub{margin-top:14px;max-width:30em;font-size:1.08rem;color:#3a1a10}
+.months{margin-top:6svh;display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.months div{display:grid;gap:8px;text-align:center;font-family:var(--mono);font-weight:700;font-size:.72rem}
+.months b{display:block;height:64px;border-radius:8px;background:rgba(11,27,43,.14)}
+.months .ok b{background:var(--navy)}
+.months .hi b{background:repeating-linear-gradient(-45deg,rgba(11,27,43,.55) 0 5px,rgba(11,27,43,.2) 5px 10px)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:.9rem;font-weight:600}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:16px;height:16px;border-radius:4px;background:var(--navy)}
+.legend span:nth-child(2) i{background:repeating-linear-gradient(-45deg,rgba(11,27,43,.55) 0 3px,rgba(11,27,43,.2) 3px 6px)}
+.season .ctas{margin-top:28px}
+
+/* 5. Cómo trabajamos y zona */
+.how{padding-block:13svh 6svh}
+.how h2,.zonesec h2{font-size:clamp(2.4rem,10.5vw,5.2rem);margin-top:12px}
+.steps{margin-top:5svh;display:grid;gap:18px}
+.step{background:var(--enamel);border-radius:24px;padding:22px 22px 24px;box-shadow:0 0 0 1px rgba(11,27,43,.08)}
+.step b{display:inline-grid;place-items:center;font-family:var(--mono);width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--amber);margin-bottom:14px}
+.step h3{font-weight:700;font-size:1.55rem;letter-spacing:-.03em;line-height:1.05}
+.step p{margin-top:8px;color:var(--mute)}
+.zonesec{padding-block:9svh 6svh}
+.zone{margin-top:5svh;display:grid;gap:26px}
+.zone ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.zone li{background:var(--enamel);border-radius:999px;padding:9px 15px;font-weight:600;box-shadow:0 0 0 1px rgba(11,27,43,.08)}
+.hours{border-top:2px solid var(--ink)}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(11,27,43,.18);font-weight:500}
+.hours div span:last-child{color:var(--mute);text-align:right}
+.hours .u span:last-child{color:var(--ember2);font-weight:700}
+.gas{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:#fff;border-radius:20px;padding:18px;box-shadow:0 0 0 2px var(--ember)}
+.gas svg{width:30px;height:30px}
+.gas h3{font-size:1.1rem;font-weight:700}
+.gas p{color:var(--mute);margin-top:4px;font-size:.98rem}
+
+/* 6. Cierre */
+.last{padding-block:6svh 16svh}
+.cold{position:relative;background:var(--navy);color:#fff;border-radius:30px;padding:30px 22px 28px;overflow:hidden}
+.cold::before{content:"";position:absolute;right:-30%;top:-40%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,122,69,.45),transparent 62%);pointer-events:none}
+.cold h2{position:relative;font-size:clamp(2.4rem,11vw,5.2rem)}
+.cold p{position:relative;color:#c9d6e3;margin-top:12px;max-width:26em}
+.cold .ctas{position:relative}
+
+/* Barra fija de contacto */
+.dock{position:fixed;z-index:40;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:10px max(14px,env(safe-area-inset-left,0px)) calc(env(safe-area-inset-bottom,0px) + 10px);pointer-events:none;
+  transform:translateY(130%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.dock.on{transform:none}
+.dock div{pointer-events:auto;display:flex;gap:8px;background:var(--navy);padding:7px;border-radius:999px;box-shadow:0 12px 34px rgba(11,27,43,.35);width:min(460px,100%)}
+.dock .btn{flex:1;padding:13px 16px;font-size:1rem}
+.dock .b-line{color:#fff}
+
+/* Diálogo: qué pasaría en una página real */
+dialog{border:0;border-radius:26px;padding:26px 22px 22px;max-width:min(440px,calc(100vw - 32px));background:var(--enamel);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(11,27,43,.6)}
+dialog h2{font-weight:700;font-size:1.8rem;letter-spacing:-.04em;line-height:1}
+dialog p{margin-top:10px;color:var(--mute)}
+dialog .bubble{margin:16px 0 0;max-width:100%}
+dialog .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+/* Caso de estudio (habla 973) */
+.case{background:#0E0F14;color:#d6d8de;font-family:'Instrument Sans',system-ui,sans-serif;padding-block:14svh 6svh}
+.case .eb{color:#FF7A45;font-family:'Instrument Sans',system-ui,sans-serif;letter-spacing:.14em}
+.case h2{font-family:'Bricolage Grotesque',var(--display);font-weight:800;font-size:clamp(2.4rem,9.5vw,5.2rem);line-height:.98;letter-spacing:-.03em;color:#fff;margin-top:14px;max-width:11em}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.facts span{border-radius:999px;padding:7px 13px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25);font-size:.88rem;font-weight:600}
+.cgrid{margin-top:7svh;display:grid;gap:34px}
+.cgrid h3{font-family:'Bricolage Grotesque',var(--display);font-weight:700;color:#fff;font-size:1.45rem;letter-spacing:-.015em}
+.cgrid p{margin-top:8px;max-width:30em}
+.dec{margin-top:7svh;border-top:1px solid rgba(255,255,255,.18)}
+.dec div{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.dec b{grid-row:span 2;font-family:'Bricolage Grotesque',var(--display);font-weight:800;color:#FF7A45;font-size:1.3rem}
+.dec h4{margin:0;color:#fff;font-size:1.15rem}
+.dec p{color:#b7bac4}
+.cta973{margin-top:10svh;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.cta973 p{font-family:'Bricolage Grotesque',var(--display);font-weight:700;color:#fff;font-size:clamp(1.6rem,6vw,2.6rem);line-height:1.05;letter-spacing:-.02em;max-width:14em}
+.cta973 .btn{background:#fff;color:#0E0F14;font-family:'Instrument Sans',system-ui,sans-serif}
+.cta973 .btn svg{fill:#25D366}
+.foot{margin-top:9svh;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;font-size:.88rem;color:#b7bac4}
+.foot a{color:#fff;font-weight:600}
+
+@media (max-width:420px){.months div{font-size:.62rem}.months b{height:52px}}
+@media (min-width:800px){
+  .layer{grid-template-columns:1.05fr 1fr;grid-template-rows:auto auto 1fr auto;column-gap:40px}
+  .layer>.bar{grid-column:1/-1}
+  .layer>h1{grid-column:1;grid-row:2}
+  .layer>.dialbox{grid-column:2;grid-row:2/5}
+  .layer>.bot{grid-column:1;grid-row:4}
+  .dial{width:min(42vw,64svh,520px)}
+  .hero h1{margin-top:4svh}
+  .form{grid-template-columns:1fr 1fr;align-items:start;column-gap:56px}
+  .form .devwrap{grid-column:2;grid-row:1/span 4;position:sticky;top:24px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .zone{grid-template-columns:1fr 1fr;gap:48px}
+  .cgrid{grid-template-columns:repeat(3,1fr);gap:40px}
+  .cold{padding:50px 46px 44px}
+  .dock{justify-content:flex-end}
+}
+
+/* Sin movimiento: portada ya caliente, sin animaciones */
+.rm .hero{height:auto}.rm .hero-in{position:relative;height:100svh}
+.rm .steam i,.rm .live i,.rm .hint i,.rm .lcd.blink .code{animation:none}
+.rm .needle,.rm .knobs span,.rm .rad i{transition:none}
+</style>
+</head><body>
+
+<p class="ribbon">Esto es un <b>concepto de diseño</b> de <a href="/">973 web studio</a>. Termo no es un negocio real. <a href="#caso">Ver el caso ↓</a></p>
+
+<header class="hero" id="hero">
+  <div class="hero-in" id="heroIn">
+    <div class="frost" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="layer w">
+        <div class="bar">
+          <a class="logo" href="#hero"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 0c1 5 7 8 7 14a7 7 0 0 1-14 0c0-3 2-5 3-6 0 2 1 3 2 3 0-4 1-8 2-11z" fill="#FF7A45"/></svg>Termo</a>
+          <span class="live"><i></i>Service en el día</span>
+        </div>
+        <h1 class="k">Calor cuando lo <em>necesitás.</em></h1>
+      <div class="dialbox" aria-hidden="true">
+        <div class="dial">
+          <svg viewBox="0 0 200 200">
+            <defs><linearGradient id="heat" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#E8582A"/><stop offset=".55" stop-color="#FF7A45"/><stop offset="1" stop-color="#FFB347"/></linearGradient></defs>
+            <g id="ticks"></g>
+            <circle class="trk" cx="100" cy="100" r="78" pathLength="100" stroke-dasharray="75 100" transform="rotate(135 100 100)"/>
+            <circle class="arc" id="arc" cx="100" cy="100" r="78" pathLength="100" stroke-dasharray="75 100" transform="rotate(135 100 100)"/>
+            <g class="knob" id="knob" style="transform:rotate(45deg)"><circle cx="178" cy="100" r="9" fill="#fff"/><circle cx="178" cy="100" r="3.5" fill="#0B1B2B"/></g>
+          </svg>
+          <div class="steam"><i></i><i></i><i></i></div>
+          <div class="dread">
+            <div class="dnum"><span id="dnum">22</span><small>°C</small></div>
+            <div class="dstat"><span class="c">Hace frío en casa</span><span class="h">Listo. Calor en casa</span></div>
+          </div>
+        </div>
+        <p class="hint"><i></i>Bajá para prender</p>
+      </div>
+      <div class="bot">
+        <p class="lede">Calderas, calefones, termotanques y radiadores en Zona Norte. Gasista matriculado. Presupuesto por WhatsApp.</p>
+        <div class="ctas">
+          <a class="btn b-ember" href="#tablero"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Contanos qué pasa</a>
+          <button class="btn b-line" type="button" data-demo="call">Llamar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="tab w" id="tablero" aria-labelledby="t-tab">
+  <div class="in">
+    <p class="eb">El tablero</p>
+    <h2 class="k" id="t-tab">¿Qué le pasa al equipo?</h2>
+    <p class="sub">Tocá lo que ves y el tablero te lo muestra como en tu caldera. El mensaje sale escrito, así llegamos con el repuesto.</p>
+    <form class="form" id="form" onsubmit="return false">
+      <fieldset>
+        <legend>¿Qué equipo es?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="e" value="mi caldera" checked><span>Caldera</span></label>
+          <label class="chip"><input type="radio" name="e" value="mi calefón"><span>Calefón</span></label>
+          <label class="chip"><input type="radio" name="e" value="mi termotanque"><span>Termotanque</span></label>
+          <label class="chip"><input type="radio" name="e" value="mi equipo"><span>No sé bien</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Qué pasa?</legend>
+        <div class="chips" id="probs">
+          <label class="chip"><input type="radio" name="p" value="off" checked><span>No enciende</span></label>
+          <label class="chip"><input type="radio" name="p" value="pres"><span>Pierde presión</span></label>
+          <label class="chip"><input type="radio" name="p" value="heat"><span>No calienta bien</span></label>
+          <label class="chip"><input type="radio" name="p" value="dhw"><span>Sin agua caliente</span></label>
+          <label class="chip"><input type="radio" name="p" value="noise"><span>Hace ruido</span></label>
+          <label class="chip"><input type="radio" name="p" value="svc"><span>Service anual</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Qué tan urgente es?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="u" value="1" checked><span>Es urgente</span></label>
+          <label class="chip"><input type="radio" name="u" value="0"><span>Puede esperar</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="barrio">¿En qué barrio estás? <small style="font-weight:500;opacity:.7">(opcional)</small></label>
+        <input id="barrio" name="barrio" type="text" placeholder="Ej.: Olivos" autocomplete="address-level2" maxlength="40"></div>
+      <div class="devwrap">
+        <div class="dev">
+          <div class="devtop" aria-hidden="true"><span>TERMO · TABLERO</span><span class="led err" id="led"><i></i><span id="ledT">FALLA</span></span></div>
+          <div class="lcd" id="lcd" aria-hidden="true">
+            <div class="code" id="code">E01</div>
+            <div class="ico"><svg id="icoF" viewBox="0 0 18 24"><path d="M9 0c1 5 7 8 7 14a7 7 0 0 1-14 0c0-3 2-5 3-6 0 2 1 3 2 3 0-4 1-8 2-11z"/></svg><svg id="icoR" viewBox="0 0 24 24"><path d="M3 4h3v16H3zm5 0h3v16H8zm5 0h3v16h-3zm5 0h3v16h-3z"/></svg><svg id="icoW" viewBox="0 0 18 24"><path d="M9 0S0 11 0 16a9 8 0 0 0 18 0C18 11 9 0 9 0z"/></svg></div>
+            <div class="txt" id="ltxt">SIN LLAMA</div>
+          </div>
+          <div class="meters" aria-hidden="true">
+            <div class="mano">
+              <svg viewBox="0 0 120 74">
+                <circle class="z" cx="60" cy="62" r="46" pathLength="200" stroke="#e9e5dc" stroke-dasharray="100 200" transform="rotate(180 60 62)"/>
+                <circle class="z" cx="60" cy="62" r="46" pathLength="200" stroke="#E8582A" stroke-dasharray="20 200" transform="rotate(180 60 62)"/>
+                <circle class="z" cx="60" cy="62" r="46" pathLength="200" stroke="#2BB673" stroke-dasharray="25 200" stroke-dashoffset="-25" transform="rotate(180 60 62)"/>
+                <circle class="z" cx="60" cy="62" r="46" pathLength="200" stroke="#E8582A" stroke-dasharray="37.5 200" stroke-dashoffset="-62.5" transform="rotate(180 60 62)"/>
+                <g font-family="JetBrains Mono,monospace" font-size="7" fill="#4c5866" text-anchor="middle"><text x="8" y="70">0</text><text x="27" y="26">1</text><text x="60" y="10">2</text><text x="93" y="26">3</text><text x="112" y="70">4</text></g>
+                <g class="needle" id="needle" style="transform:rotate(-27deg)"><path d="M58.6 62 L60 22 L61.4 62z" fill="#0B1B2B"/></g>
+                <circle cx="60" cy="62" r="5" fill="#0B1B2B"/>
+              </svg>
+              <p id="bar">1,4 bar</p>
+            </div>
+            <div class="knobs"><span id="k1"></span><span id="k2"></span></div>
+          </div>
+          <div class="chat" aria-live="polite">
+            <div class="who"><b><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 0c1 5 7 8 7 14a7 7 0 0 1-14 0c0-3 2-5 3-6 0 2 1 3 2 3 0-4 1-8 2-11z" fill="#0B1B2B"/></svg></b><span>Termo Calefacción<small>en línea</small></span></div>
+            <p class="bubble" id="msg">Hola Termo, mi caldera no enciende. Es urgente. ¿Pueden venir hoy?<time>ahora</time></p>
+          </div>
+        </div>
+        <div class="send"><button class="btn b-navy" type="button" data-demo="wa"><svg viewBox="0 0 24 24" aria-hidden="true" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Enviar por WhatsApp</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="svcs w" aria-labelledby="t-svc">
+  <div class="in">
+    <p class="eb">Qué hacemos</p>
+    <h2 class="k" id="t-svc">Todo lo que da calor.</h2>
+    <ul class="svc" id="svc">
+      <li><span class="rad" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><h3>Calderas</h3><span>Mismo día</span><p>Service, reparación y puesta en marcha. Todas las marcas, murales y de pie.</p></li>
+      <li><span class="rad" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><h3>Calefones y termotanques</h3><span>24 a 48 h</span><p>Reparación, cambio e instalación, a gas y eléctricos.</p></li>
+      <li><span class="rad" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><h3>Radiadores y losa radiante</h3><span>Mismo día</span><p>Purgado, balanceo, pérdidas y radiadores nuevos.</p></li>
+      <li><span class="rad" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><h3>Instalaciones de gas</h3><span>A medida</span><p>Gasista matriculado: instalaciones nuevas, reformas y pruebas de hermeticidad.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="season w" aria-labelledby="t-season">
+  <div class="in">
+    <p class="eb">Service anual</p>
+    <h2 class="k" id="t-season">El mejor service es antes del frío.</h2>
+    <p class="sub">En otoño hay turnos y el equipo llega listo al invierno. En julio, todos llaman el mismo día.</p>
+    <div class="months" aria-hidden="true">
+      <div><b></b>E</div><div><b></b>F</div><div class="ok"><b></b>M</div><div class="ok"><b></b>A</div><div class="ok"><b></b>M</div><div class="hi"><b></b>J</div>
+      <div class="hi"><b></b>J</div><div class="hi"><b></b>A</div><div><b></b>S</div><div><b></b>O</div><div><b></b>N</div><div><b></b>D</div>
+    </div>
+    <p class="legend"><span><i></i>Ideal: marzo a mayo</span><span><i></i>Temporada alta: junio a agosto</span></p>
+    <div class="ctas"><a class="btn b-navy" href="#tablero" id="toSvc">Pedir turno de service</a></div>
+  </div>
+</section>
+
+<section class="how w" aria-labelledby="t-how">
+  <div class="in">
+    <p class="eb">Cómo trabajamos</p>
+    <h2 class="k" id="t-how">Tres pasos. Sin sorpresas.</h2>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Nos escribís</h3><p>Con el mensaje armado ya sabemos qué equipo es, qué falla tiene y qué repuesto llevar.</p></div>
+      <div class="step"><b>2</b><h3>Precio antes</h3><p>Revisamos el equipo y te pasamos el presupuesto antes de tocar nada.</p></div>
+      <div class="step"><b>3</b><h3>Lo prendemos con vos</h3><p>Encendemos, medimos presión y temperatura, y te dejamos la garantía por escrito.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="zonesec w" aria-labelledby="t-zone">
+  <div class="in">
+    <p class="eb">Dónde y cuándo</p>
+    <h2 class="k" id="t-zone">Zona Norte y alrededores.</h2>
+    <div class="zone">
+      <ul><li>Vicente López</li><li>Olivos</li><li>Florida</li><li>Munro</li><li>Martínez</li><li>San Isidro</li><li>Núñez</li><li>Saavedra</li></ul>
+      <div class="hours">
+        <div><span>Lunes a viernes</span><span>8 a 19 h</span></div>
+        <div><span>Sábados</span><span>9 a 14 h</span></div>
+        <div class="u"><span>Urgencias en invierno</span><span>Todos los días</span></div>
+      </div>
+    </div>
+    <div class="gas">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 29 27H1z" fill="#FF7A45"/><path d="M14 11h2v8h-2zm0 10h2v2h-2z" fill="#0B1B2B"/></svg>
+      <div><h3>¿Sentís olor a gas?</h3><p>Primero cerrá la llave de paso, abrí puertas y ventanas, no prendas luces ni fuego y llamá a la guardia de tu distribuidora de gas. Después nos escribís para la reparación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="last w" aria-labelledby="t-last">
+  <div class="in">
+    <div class="cold">
+      <h2 class="k" id="t-last">¿Sin calefacción hoy?</h2>
+      <p>Escribinos y te decimos a qué hora llegamos. Sin vueltas.</p>
+      <div class="ctas"><a class="btn b-ember" href="#tablero">Armar mensaje</a><button class="btn b-line" type="button" data-demo="call">Llamar</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="case w" id="caso" aria-labelledby="t-case">
+  <div class="in">
+    <p class="eb">Detrás del concepto · 973 web studio</p>
+    <h2 id="t-case">Una página que se prende como una caldera.</h2>
+    <div class="facts"><span>Rubro: calefacción y gas</span><span>Concepto propio, no es un cliente</span><span>Sin librerías</span><span>Sin fotos: todo dibujado con código</span></div>
+    <div class="cgrid">
+      <div><h3>El problema</h3><p>Cuando la caldera falla, el cliente no sabe explicar qué tiene. El técnico llega sin saber qué repuesto llevar y hace dos viajes.</p></div>
+      <div><h3>La idea</h3><p>La página es el tablero del equipo. Bajar es girar la perilla: la temperatura sube y la portada se calienta. Después, el tablero sirve para contar la falla.</p></div>
+      <div><h3>Lo que busca</h3><p>Que el técnico reciba un mensaje con el equipo, la falla, la urgencia y el barrio, y llegue con lo que hace falta.</p></div>
+    </div>
+    <div class="dec">
+      <div><b>01</b><h4>El tablero traduce la falla</h4><p>El cliente toca lo que ve y la pantalla y el manómetro se mueven como en su caldera. Entiende qué le pasa y el mensaje sale escrito.</p></div>
+      <div><b>02</b><h4>Pensada para la temporada</h4><p>La franja de meses lleva el service al otoño, cuando el técnico tiene turnos, en vez de que todos llamen el primer día de frío.</p></div>
+      <div><b>03</b><h4>Seguridad primero</h4><p>Con gas no se improvisa: la página dice qué hacer si hay olor a gas antes de vender nada.</p></div>
+      <div><b>04</b><h4>Liviana y accesible</h4><p>Sin librerías ni fotos pesadas. Quien prefiere menos movimiento ve la portada ya encendida, sin animaciones.</p></div>
+    </div>
+    <div class="cta973">
+      <p>¿Querés una página así para tu oficio?</p>
+      <a class="btn" href="https://wa.me/5491132089305?text=Hola%2C%20vi%20la%20demo%20Termo%20de%20973%20web%20studio%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20negocio." rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Escribirle a 973</a>
+    </div>
+    <div class="foot"><a href="/">← Volver a 973 web studio</a><span>Termo es un concepto. Nombres, zona y horarios son de ejemplo.</span></div>
+  </div>
+</section>
+
+<nav class="dock" id="dock" aria-label="Contacto rápido"><div>
+  <a class="btn b-ember" href="#tablero">WhatsApp</a><button class="btn b-line" type="button" data-demo="call">Llamar</button>
+</div></nav>
+
+<dialog id="dlg" aria-labelledby="dlgT">
+  <h2 id="dlgT">En una página real…</h2>
+  <p id="dlgP">…este botón abre WhatsApp con este mensaje listo para enviar:</p>
+  <p class="bubble" id="dlgMsg"></p>
+  <div class="row"><a class="btn b-navy" href="#caso" id="dlgCase">Ver el caso</a><button class="btn b-line" type="button" id="dlgClose">Seguir mirando</button></div>
+</dialog>
+
+<script>
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm) document.documentElement.classList.add('rm');
+  function $(s){return document.querySelector(s)} function $$(s){return [].slice.call(document.querySelectorAll(s))}
+  function cl(v,a,b){return Math.max(a,Math.min(b,v))}
+  var NS='http://www.w3.org/2000/svg';
+
+  // Marcas del dial (270°, de abajo a la izquierda a abajo a la derecha)
+  var tg=$('#ticks'), ticks=[], N=28;
+  for(var i=0;i<N;i++){
+    var a=(135+270*i/(N-1))*Math.PI/180, l=document.createElementNS(NS,'line');
+    l.setAttribute('x1',(100+92*Math.cos(a)).toFixed(2)); l.setAttribute('y1',(100+92*Math.sin(a)).toFixed(2));
+    l.setAttribute('x2',(100+(i%3?96:99)*Math.cos(a)).toFixed(2)); l.setAttribute('y2',(100+(i%3?96:99)*Math.sin(a)).toFixed(2));
+    l.setAttribute('class','tick'); tg.appendChild(l); ticks.push(l);
+  }
+
+  // Portada: el scroll gira la perilla de 14 a 22 °C
+  var hero=$('#hero'), heroIn=$('#heroIn'), arc=$('#arc'), knob=$('#knob'), dnum=$('#dnum'), lastT=-1;
+  function setDial(p){
+    heroIn.style.setProperty('--p',p.toFixed(4));
+    arc.style.strokeDasharray=(75*p).toFixed(2)+' 100';
+    knob.style.transform='rotate('+(135+270*p).toFixed(2)+'deg)';
+    var t=Math.round(14+8*p); if(t!==lastT){ dnum.textContent=t; lastT=t; }
+    var lit=Math.round(p*(N-1));
+    for(var i=0;i<N;i++) ticks[i].classList.toggle('on', i<=lit && p>0.01);
+    heroIn.classList.toggle('hot', p>.97);
+  }
+
+  // Tablero: cada falla tiene su código, presión y estado
+  var F={
+    off:  {c:'E01', t:'SIN LLAMA',         b:1.4, f:0, r:0, w:0, m:'no enciende'},
+    pres: {c:'P0,4',t:'BAJA PRESIÓN',      b:.4,  f:0, r:0, w:0, m:'pierde presión'},
+    heat: {c:'T19°',t:'NO LLEGA A TEMP.',  b:1.3, f:1, r:0, w:1, m:'no calienta bien'},
+    dhw:  {c:'H18°',t:'SIN AGUA CALIENTE', b:1.5, f:1, r:1, w:0, m:'no da agua caliente'},
+    noise:{c:'N03', t:'RUIDO / SOBREPRES.',b:2.8, f:1, r:1, w:1, m:'hace ruido'},
+    svc:  {c:'S12M',t:'SERVICE ANUAL',     b:1.5, f:1, r:1, w:1, m:'', ok:1}
+  };
+  var form=$('#form'), msg=$('#msg'), barrio=$('#barrio'), code=$('#code'), ltxt=$('#ltxt'), lcd=$('#lcd'), needle=$('#needle'), bar=$('#bar'),
+      led=$('#led'), ledT=$('#ledT'), k1=$('#k1'), k2=$('#k2'), last='';
+  function val(n){ return form.querySelector('input[name='+n+']:checked').value; }
+  function text(){
+    var e=val('e'), f=F[val('p')], u=val('u')==='1', b=barrio.value.trim().replace(/\s+/g,' ');
+    var s='Hola Termo, '+(f.ok?'quiero hacerle el service anual a '+e:e+' '+f.m)+'. ';
+    s+=(u?'Es urgente. ':'No es urgente. ')+(b?'Estoy en '+b+'. ':'')+(u?'¿Pueden venir hoy?':'¿Cuándo tienen turno?');
+    return s;
+  }
+  function upd(){
+    var k=val('p'), f=F[k];
+    msg.firstChild.nodeValue=text();
+    if(k===last) return; last=k;
+    code.textContent=f.c; ltxt.textContent=f.t;
+    needle.style.transform='rotate('+(-90+f.b/4*180).toFixed(1)+'deg)';
+    bar.textContent=String(f.b.toFixed(1)).replace('.',',')+' bar';
+    $('#icoF').classList.toggle('on',!!f.f); $('#icoR').classList.toggle('on',!!f.r); $('#icoW').classList.toggle('on',!!f.w);
+    led.classList.toggle('err',!f.ok); ledT.textContent=f.ok?'OK':'FALLA';
+    k1.style.transform='rotate('+(f.b*60-90)+'deg)'; k2.style.transform='rotate('+(f.f?120:-60)+'deg)';
+    if(!rm){ lcd.classList.remove('blink'); void lcd.offsetWidth; lcd.classList.add('blink'); }
+  }
+  form.addEventListener('change',upd); barrio.addEventListener('input',upd); upd();
+  $('#toSvc').addEventListener('click',function(){ form.querySelector('input[value=svc]').checked=true; form.querySelector('input[name=u][value="0"]').checked=true; upd(); });
+
+  // Diálogo de demo
+  var dlg=$('#dlg'), dlgP=$('#dlgP'), dlgMsg=$('#dlgMsg');
+  $$('[data-demo]').forEach(function(b){ b.addEventListener('click',function(){
+    if(b.dataset.demo==='wa'){ dlgP.textContent='…este botón abre WhatsApp con el mensaje listo para enviar:'; dlgMsg.textContent=text(); dlgMsg.hidden=false; }
+    else { dlgP.textContent='…este botón llama directo al técnico con un toque. Como Termo es un concepto, no hay un número real.'; dlgMsg.hidden=true; }
+    if(dlg.showModal) dlg.showModal(); else alert(dlgP.textContent);
+  }); });
+  $('#dlgClose').addEventListener('click',function(){dlg.close()});
+  $('#dlgCase').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+
+  // Radiadores: se calientan al entrar en pantalla
+  var rows=$$('#svc li');
+  if(rm||!('IntersectionObserver' in window)) rows.forEach(function(r){r.classList.add('on')});
+  else { var io=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('on'); io.unobserve(x.target); } }); },{rootMargin:'0px 0px -25% 0px'});
+    rows.forEach(function(r){io.observe(r)}); }
+
+  // Scroll: perilla de la portada y barra fija
+  var caso=$('#caso'), tab=$('#tablero'), dock=$('#dock'), ticking=false;
+  function frame(){
+    ticking=false;
+    var r=hero.getBoundingClientRect();
+    var tr=tab.getBoundingClientRect(), inTab=tr.top<innerHeight*.5 && tr.bottom>innerHeight*.5;
+    dock.classList.toggle('on', r.bottom<innerHeight*.5 && !inTab && caso.getBoundingClientRect().top>innerHeight*.7);
+    if(rm) return;
+    var t=r.height-innerHeight, hp=t>0?cl(-r.top/(t*.85),0,1):1;
+    setDial(hp*hp*(3-2*hp));
+  }
+  function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(frame)} }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll);
+  if(rm) setDial(1);
+  frame();
+})();
+</script>
+</body></html>
