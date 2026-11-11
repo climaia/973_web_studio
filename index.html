@@ -103,6 +103,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .card .bot{position:relative;z-index:2}
 .card h3{font-family:var(--display);font-weight:800;font-size:clamp(3.2rem,19vw,7.5rem);line-height:.9;letter-spacing:-.045em}
 .card .tag{margin-top:10px;font-size:1.05rem;max-width:20em;opacity:.9}
+.card .demo{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px}
+.card .demo::after{content:"";position:absolute;inset:-100vh -100vw;z-index:-1}
+.card:has(.demo){cursor:pointer}
+.card .demo:hover{background:var(--blue)}
 .c1{background:var(--wine);color:#ffd9c6}.c1 h3{color:var(--ember)}
 .c2{background:var(--navy);color:#cfe3f5}.c2 h3{color:#fff}
 .c3{background:#14120e;color:#f3efe6}.c3 .top{text-shadow:0 1px 10px rgba(0,0,0,.55)}.c3 .top span:last-child{opacity:.9}
@@ -277,7 +281,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
         <div class="bot"><h3>Termo</h3><p class="tag">Calor cuando lo necesitás. Calderas con el tablero a la vista.</p></div></article>
       <article class="card c4" style="--i:2"><div class="art" aria-hidden="true"><div class="pipes"><b></b><b></b><b></b></div><span class="drop"></span><span class="ripple"><i></i><i></i></span></div>
         <div class="top"><span>Plomería</span><span>Concepto</span></div>
-        <div class="bot"><h3>Gota</h3><p class="tag">Una pérdida no espera. La página tampoco: te llaman en un toque.</p></div></article>
+        <div class="bot"><h3>Gota</h3><p class="tag">Una pérdida no espera. La página tampoco: te llaman en un toque.</p><a class="demo" href="/gota/">Ver la demo y el caso <span aria-hidden="true">→</span></a></div></article>
       <article class="card c3" style="--i:3"><div class="art" aria-hidden="true"><div class="foto3"></div><div class="velo3"></div><div class="vf"><b></b><b></b><b></b><b></b></div><span class="lnum">f/1.8</span></div>
         <div class="top"><span>Fotografía</span><span>Concepto</span></div>
         <div class="bot"><h3>Lumen</h3><p class="tag">La luz primero. Un portfolio que abre como un obturador.</p></div></article>

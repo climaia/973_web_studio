@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gota — Plomería · Concepto de 973 web studio</title>
+<meta name="description" content="Gota es un concepto de página web para plomería hecho por 973 web studio: el agua sube con el scroll y todo el recorrido termina en un mensaje de WhatsApp ya armado.">
+<meta property="og:title" content="Gota — Plomería · Concepto de 973 web studio">
+<meta property="og:description" content="Una pérdida no espera. La página tampoco. Un concepto de diseño web para oficios.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://973webstudio.com.ar/gota/">
+<meta property="og:image" content="https://973webstudio.com.ar/gota/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://973webstudio.com.ar/gota/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#E4DFD3">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Gota — concepto de plomería de 973 web studio.
+   Idea: la página es una cañería. El agua sube en la portada y una caño recorre la página hasta el mensaje de WhatsApp. */
+:root{
+  --sand:#E4DFD3; --sand2:#D6D0C1; --ink:#101418; --water:#2D36FF; --water2:#1C24C9; --foam:#F6F4EF; --sky:#AEB8FF; --mute:#4b5059;
+  --display:'Archivo','Arial Narrow',Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--display);font-stretch:100%;font-size:17px;line-height:1.5;overflow-x:clip}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+.w{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.in{max-width:1040px;margin:0 auto}
+.k{font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.86}
+.eb{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;font:inherit;font-weight:800;font-size:1.05rem;
+  padding:16px 24px;text-decoration:none;cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.b-water{background:var(--water);color:#fff}
+.b-ink{background:var(--ink);color:#fff}
+.b-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+
+/* Cinta de concepto */
+.ribbon{background:var(--ink);color:#d9dbe0;font-size:.8rem;text-align:center;padding:8px 16px;padding-top:calc(env(safe-area-inset-top,0px) + 8px)}
+.ribbon a{color:#fff;font-weight:700}
+
+/* 1. Portada: el agua sube con el scroll */
+.hero{height:175svh;position:relative}
+.hero-in{position:sticky;top:0;height:100svh;overflow:hidden}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding-top:22px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 26px)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-stretch:80%;font-size:1.5rem;letter-spacing:-.02em;text-decoration:none}
+.logo svg{width:20px;height:26px}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:700;border-radius:999px;padding:7px 12px;box-shadow:inset 0 0 0 1.5px currentColor}
+.live i{width:8px;height:8px;border-radius:50%;background:#18c25a;box-shadow:0 0 0 0 rgba(24,194,90,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(24,194,90,0)}100%{box-shadow:0 0 0 0 rgba(24,194,90,0)}}
+.hero h1{font-size:clamp(3.4rem,20vw,13.5rem);margin-top:2svh}
+.hero h1 span{display:block}
+.hero .lede{max-width:24em;font-size:1.12rem;margin-top:18px;color:var(--mute)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.water{position:absolute;inset:0;background:var(--water);color:#fff;pointer-events:none;clip-path:inset(calc((1 - var(--lv,.035))*100%) 0 0 0)}
+.water .lede{color:var(--sky)}
+.water .b-water{background:#fff;color:var(--water)}
+.water .live i{background:#fff}
+.wave{position:absolute;left:0;width:200%;height:26px;top:calc((1 - var(--lv,.035))*100%);transform:translateY(-96%);pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q25 0 50 13 T100 13 T150 13 T200 13 V26 H0Z' fill='%232D36FF'/%3E%3C/svg%3E") 0 0/50% 100% repeat-x;
+  animation:wave 4s linear infinite}
+@keyframes wave{to{transform:translate(-50%,-96%)}}
+.faucet{position:absolute;z-index:2;right:max(18px,6vw);top:16svh;width:clamp(90px,22vw,170px);pointer-events:none}
+.faucet svg{display:block;width:100%;height:auto}
+.fdrop{position:absolute;left:21%;top:96%;width:clamp(12px,2.6vw,20px);aspect-ratio:3/4;background:var(--water);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  animation:fall 2.2s cubic-bezier(.55,0,1,.45) infinite}
+@keyframes fall{0%{transform:translateY(0) scale(.3);opacity:0}12%{transform:translateY(0) scale(1);opacity:1}88%{opacity:1}100%{transform:translateY(62svh) scale(1);opacity:0}}
+
+/* 2. Armá tu mensaje */
+.ask{background:var(--water);color:#fff;padding-block:12svh 14svh}
+.ask h2{font-size:clamp(3rem,15vw,7.5rem)}
+.ask .sub{color:var(--sky);margin-top:14px;max-width:28em;font-size:1.08rem}
+.form{margin-top:6svh;display:grid;gap:28px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:800;font-size:1.05rem;margin-bottom:12px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:block;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);transition:background .2s,color .2s,box-shadow .2s}
+.chip input:checked+span{background:#fff;color:var(--water);box-shadow:inset 0 0 0 2px #fff}
+.chip input:focus-visible+span{outline:3px solid #fff;outline-offset:3px}
+.field input{width:100%;max-width:420px;font:inherit;font-weight:600;color:#fff;background:rgba(255,255,255,.1);border:0;border-bottom:2px solid rgba(255,255,255,.6);padding:12px 4px;border-radius:0}
+.field input::placeholder{color:rgba(255,255,255,.65)}
+.field input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.16)}
+.field label{display:block;font-weight:800;font-size:1.05rem;margin-bottom:6px}
+.chat{background:#0b1a12;border-radius:26px;padding:16px;max-width:460px;box-shadow:0 30px 60px rgba(8,10,60,.35)}
+.chat .who{display:flex;align-items:center;gap:10px;padding:2px 4px 12px;border-bottom:1px solid rgba(255,255,255,.1);color:#e9edef;font-weight:700;font-size:.95rem}
+.chat .who b{width:34px;height:34px;border-radius:50%;background:var(--water);display:grid;place-items:center}
+.chat .who b svg{width:12px;height:16px}
+.chat .who small{display:block;color:#8696a0;font-weight:500;font-size:.78rem}
+.bubble{margin:14px 0 4px auto;max-width:92%;background:#005c4b;color:#e9edef;border-radius:14px 4px 14px 14px;padding:10px 12px 18px;font-size:.98rem;line-height:1.4;position:relative;font-stretch:100%}
+.bubble time{position:absolute;right:10px;bottom:4px;font-size:.68rem;color:#9fc2b8}
+.send{margin-top:6px}
+.send .btn{width:100%;max-width:460px;background:#fff;color:var(--water)}
+
+/* 3. Recorrido con la cañería */
+.run{position:relative;padding-left:58px}
+.pipe{position:absolute;left:22px;top:0;bottom:0;width:12px;border-radius:8px;background:var(--sand2);box-shadow:inset 0 0 0 2px var(--ink)}
+.pipe i{position:absolute;left:2px;right:2px;top:2px;bottom:2px;border-radius:6px;background:var(--water);transform-origin:top;transform:scaleY(var(--fill,0))}
+.tip{position:absolute;left:28px;top:calc(var(--fill,0)*100%);width:22px;height:30px;margin:-4px 0 0 -11px;background:var(--water);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  box-shadow:0 0 0 4px var(--sand);transition:opacity .3s}
+.sec{padding-block:13svh 4svh;position:relative}
+.jt{position:absolute;left:-46px;top:calc(13svh + .3em);width:24px;height:24px;border-radius:6px;background:var(--sand);box-shadow:inset 0 0 0 3px var(--ink);transition:background .3s,box-shadow .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.jt.on{background:var(--water);box-shadow:inset 0 0 0 3px var(--ink),0 0 0 6px rgba(45,54,255,.18);transform:rotate(45deg)}
+.sec h2{font-size:clamp(2.8rem,12vw,6rem)}
+.sec .sub{margin-top:12px;max-width:30em;color:var(--mute)}
+.svc{margin:5svh 0 0;padding:0;display:grid;grid-template-columns:1fr;border-top:3px solid var(--ink)}
+.svc li{list-style:none;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(16,20,24,.2)}
+.svc h3{font-weight:900;font-stretch:75%;font-size:clamp(1.5rem,6vw,2.2rem);letter-spacing:-.01em;line-height:1;text-transform:uppercase}
+.svc p{grid-column:1/-1;color:var(--mute);max-width:32em}
+.svc span{font-weight:700;font-size:.85rem;color:var(--water);white-space:nowrap}
+.steps{margin-top:5svh;display:grid;gap:22px;counter-reset:s}
+.step{background:var(--foam);border-radius:24px;padding:22px 22px 24px;box-shadow:0 1px 0 rgba(16,20,24,.08)}
+.step b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;font-weight:900;margin-bottom:14px}
+.step h3{font-weight:900;font-stretch:75%;font-size:1.7rem;text-transform:uppercase;line-height:1}
+.step p{margin-top:8px;color:var(--mute)}
+.zone{margin-top:5svh;display:grid;gap:26px}
+.zone ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.zone li{background:var(--foam);border-radius:999px;padding:9px 15px;font-weight:700}
+.hours{border-top:3px solid var(--ink)}
+.hours div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(16,20,24,.2);font-weight:600}
+.hours div span:last-child{color:var(--mute);text-align:right}
+.hours .u span:last-child{color:var(--water);font-weight:800}
+/* Final: la canilla y la gota caen en el botón */
+.last{padding-bottom:16svh}
+.sink{position:relative;margin-top:6svh;background:var(--ink);color:#fff;border-radius:30px;padding:30px 22px 26px;overflow:hidden}
+.sink h3{font-size:clamp(2.6rem,12vw,5.5rem)}
+.sink p{color:#b9bec7;margin-top:12px;max-width:26em}
+.sink .ctas{position:relative;z-index:2}
+.ring{position:absolute;right:16%;bottom:44px;width:0;height:0}
+.ring i{position:absolute;width:150px;height:40px;margin:-20px 0 0 -75px;border:2px solid var(--water);border-radius:50%;opacity:0;animation:rip 2.4s ease-out infinite}
+.ring i:nth-child(2){animation-delay:.3s}
+@keyframes rip{0%,60%{transform:scale(.1);opacity:0}66%{opacity:.9}100%{transform:scale(1);opacity:0}}
+.sdrop{position:absolute;right:16%;top:-10px;width:16px;height:22px;margin-right:-8px;background:var(--water);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:sfall 2.4s cubic-bezier(.55,0,1,.45) infinite}
+@keyframes sfall{0%{transform:translateY(0);opacity:0}10%{opacity:1}58%{opacity:1}62%,100%{transform:translateY(calc(var(--sh,260px) - 48px)) scale(.2);opacity:0}}
+
+/* Barra fija de contacto */
+.dock{position:fixed;z-index:40;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:10px max(14px,env(safe-area-inset-left,0px)) calc(env(safe-area-inset-bottom,0px) + 10px);pointer-events:none;
+  transform:translateY(130%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.dock.on{transform:none}
+.dock div{pointer-events:auto;display:flex;gap:8px;background:var(--ink);padding:7px;border-radius:999px;box-shadow:0 12px 34px rgba(16,20,24,.35);width:min(460px,100%)}
+.dock .btn{flex:1;padding:13px 16px;font-size:1rem}
+.dock .b-line{color:#fff}
+
+/* Diálogo: qué pasaría en una página real */
+dialog{border:0;border-radius:26px;padding:26px 22px 22px;max-width:min(440px,calc(100vw - 32px));background:var(--foam);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(16,20,24,.55)}
+dialog h2{font-weight:900;font-stretch:75%;font-size:1.9rem;text-transform:uppercase;line-height:1}
+dialog p{margin-top:10px;color:var(--mute)}
+dialog .bubble{margin:16px 0 0;max-width:100%}
+dialog .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+/* Caso de estudio (habla 973) */
+.case{background:#0E0F14;color:#d6d8de;font-family:'Instrument Sans',system-ui,sans-serif;padding-block:14svh 6svh}
+.case .eb{color:#FF7A45}
+.case h2{font-family:'Bricolage Grotesque',var(--display);font-weight:800;font-size:clamp(2.4rem,9.5vw,5.2rem);line-height:.98;letter-spacing:-.03em;color:#fff;margin-top:14px;max-width:11em}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.facts span{border-radius:999px;padding:7px 13px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25);font-size:.88rem;font-weight:600}
+.cgrid{margin-top:7svh;display:grid;gap:34px}
+.cgrid h3{font-family:'Bricolage Grotesque',var(--display);font-weight:700;color:#fff;font-size:1.45rem;letter-spacing:-.015em}
+.cgrid p{margin-top:8px;max-width:30em}
+.dec{margin-top:7svh;border-top:1px solid rgba(255,255,255,.18)}
+.dec div{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.dec b{grid-row:span 2;font-family:'Bricolage Grotesque',var(--display);font-weight:800;color:#FF7A45;font-size:1.3rem}
+.dec h4{margin:0;color:#fff;font-size:1.15rem}
+.dec p{color:#b7bac4}
+.cta973{margin-top:10svh;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.cta973 p{font-family:'Bricolage Grotesque',var(--display);font-weight:700;color:#fff;font-size:clamp(1.6rem,6vw,2.6rem);line-height:1.05;letter-spacing:-.02em;max-width:14em}
+.cta973 .btn{background:#fff;color:#0E0F14;font-family:'Instrument Sans',system-ui,sans-serif}
+.cta973 .btn svg{fill:#25D366}
+.foot{margin-top:9svh;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;font-size:.88rem;color:#b7bac4}
+.foot a{color:#fff;font-weight:600}
+
+@media (max-width:799px){.faucet{top:47svh}}
+@media (min-width:800px){
+  .run{padding-left:96px}
+  .pipe{left:40px}.tip{left:46px}.jt{left:-68px}
+  .form{grid-template-columns:1.1fr 1fr;align-items:start;column-gap:48px}
+  .form .chatwrap{grid-column:2;grid-row:1/span 3;position:sticky;top:24px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .zone{grid-template-columns:1fr 1fr;gap:48px}
+  .cgrid{grid-template-columns:repeat(3,1fr);gap:40px}
+  .sink{padding:46px 44px 40px}
+  .dock{justify-content:flex-end}
+}
+
+/* Sin movimiento */
+.rm .hero{height:auto}.rm .hero-in{position:relative;height:100svh}
+.rm .wave,.rm .fdrop,.rm .live i,.rm .ring i,.rm .sdrop{animation:none}
+.rm .fdrop,.rm .sdrop,.rm .water,.rm .wave{display:none}
+.rm .pipe i{transform:none}.rm .tip{display:none}
+</style>
+</head><body>
+
+<p class="ribbon">Esto es un <b>concepto de diseño</b> de <a href="/">973 web studio</a>. Gota no es un negocio real. <a href="#caso">Ver el caso ↓</a></p>
+
+<header class="hero" id="hero">
+  <div class="hero-in" id="heroIn">
+    <div class="layer w" id="dry">
+      <div class="in" style="width:100%">
+        <div class="bar">
+          <a class="logo" href="#hero"><svg viewBox="0 0 20 26" aria-hidden="true"><path d="M10 0C10 0 0 11 0 17a10 9 0 0 0 20 0C20 11 10 0 10 0z" fill="currentColor"/></svg>Gota</a>
+          <span class="live"><i></i>Urgencias 24 h</span>
+        </div>
+        <h1 class="k"><span>¿Pérdida?</span><span>Llegamos</span><span>hoy.</span></h1>
+      </div>
+      <div class="in" style="width:100%">
+        <p class="lede">Destapaciones, pérdidas, termotanques e instalaciones en Zona Oeste. Presupuesto sin cargo, por WhatsApp.</p>
+        <div class="ctas">
+          <a class="btn b-water" href="#pedido"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Contanos qué pasó</a>
+          <button class="btn b-line" type="button" data-demo="call">Llamar</button>
+        </div>
+      </div>
+    </div>
+    <div class="faucet" aria-hidden="true">
+      <svg viewBox="0 0 170 120"><path d="M20 20h70a30 30 0 0 1 30 30v14H96V54a8 8 0 0 0-8-8H20z" fill="#101418"/><rect x="40" y="0" width="22" height="22" rx="5" fill="#101418"/><rect x="24" y="0" width="54" height="9" rx="4.5" fill="#101418"/><rect x="92" y="62" width="32" height="10" rx="4" fill="#101418"/></svg>
+      <span class="fdrop" style="left:62%"></span>
+    </div>
+    <div class="wave" aria-hidden="true"></div>
+    <div class="water" id="water" aria-hidden="true"></div>
+  </div>
+</header>
+
+<section class="ask" id="pedido">
+  <div class="w"><div class="in">
+    <p class="eb">Sin vueltas</p>
+    <h2 class="k" style="margin-top:12px">Armá tu<br>mensaje.</h2>
+    <p class="sub">Tocá lo que te pasa y el mensaje sale escrito. Así llegamos sabiendo qué herramientas traer.</p>
+    <form class="form" id="form" onsubmit="return false">
+      <fieldset>
+        <legend>¿Qué te pasa?</legend>
+        <div class="chips" id="probs">
+          <label class="chip"><input type="radio" name="p" value="tengo una pérdida de agua" checked><span>Pérdida de agua</span></label>
+          <label class="chip"><input type="radio" name="p" value="se me tapó un desagüe"><span>Desagüe tapado</span></label>
+          <label class="chip"><input type="radio" name="p" value="no tengo agua caliente"><span>Sin agua caliente</span></label>
+          <label class="chip"><input type="radio" name="p" value="gotea una canilla"><span>Canilla que gotea</span></label>
+          <label class="chip"><input type="radio" name="p" value="necesito una instalación nueva"><span>Instalación nueva</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Qué tan urgente es?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="u" value="1" checked><span>Es urgente</span></label>
+          <label class="chip"><input type="radio" name="u" value="0"><span>Puede esperar</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="barrio">¿En qué barrio estás? <small style="font-weight:500;opacity:.75">(opcional)</small></label>
+        <input id="barrio" name="barrio" type="text" placeholder="Ej.: Ramos Mejía" autocomplete="address-level2" maxlength="40"></div>
+      <div class="chatwrap">
+        <div class="chat" aria-live="polite">
+          <div class="who"><b><svg viewBox="0 0 20 26" aria-hidden="true"><path d="M10 0C10 0 0 11 0 17a10 9 0 0 0 20 0C20 11 10 0 10 0z" fill="#fff"/></svg></b><span>Gota Plomería<small>en línea</small></span></div>
+          <p class="bubble" id="msg">Hola Gota, tengo una pérdida de agua. Es urgente. ¿Pueden venir hoy?<time>ahora</time></p>
+        </div>
+        <div class="send"><button class="btn" type="button" data-demo="wa"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Enviar por WhatsApp</button></div>
+      </div>
+    </form>
+  </div></div>
+</section>
+
+<main class="run w" id="run">
+  <div class="pipe" aria-hidden="true"><i id="fill"></i></div>
+  <span class="tip" id="tip" aria-hidden="true"></span>
+  <div class="in">
+    <section class="sec" aria-labelledby="t-svc"><span class="jt" aria-hidden="true"></span>
+      <p class="eb">Qué hacemos</p>
+      <h2 class="k" id="t-svc" style="margin-top:10px">Todo lo<br>que corre<br>por un caño.</h2>
+      <ul class="svc">
+        <li><h3>Pérdidas</h3><span>Mismo día</span><p>Detectamos la pérdida sin romper de más y la reparamos con garantía.</p></li>
+        <li><h3>Destapaciones</h3><span>Mismo día</span><p>Cocina, baño, cloacas y pluviales. Con máquina, sin químicos agresivos.</p></li>
+        <li><h3>Termotanques</h3><span>24 a 48 h</span><p>Reparación, cambio e instalación, eléctricos y a gas.</p></li>
+        <li><h3>Instalaciones</h3><span>A medida</span><p>Baños y cocinas nuevos, cambio de cañerías viejas y tanques.</p></li>
+      </ul>
+    </section>
+
+    <section class="sec" aria-labelledby="t-how"><span class="jt" aria-hidden="true"></span>
+      <p class="eb">Cómo trabajamos</p>
+      <h2 class="k" id="t-how" style="margin-top:10px">Tres pasos.<br>Sin sorpresas.</h2>
+      <div class="steps">
+        <div class="step"><b>1</b><h3>Nos escribís</h3><p>Con el mensaje armado ya sabemos qué pasa y qué traer.</p></div>
+        <div class="step"><b>2</b><h3>Precio antes</h3><p>Te pasamos el presupuesto antes de tocar nada.</p></div>
+        <div class="step"><b>3</b><h3>Queda andando</h3><p>Probamos todo con vos y te dejamos la garantía por escrito.</p></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="t-zone"><span class="jt" aria-hidden="true"></span>
+      <p class="eb">Dónde y cuándo</p>
+      <h2 class="k" id="t-zone" style="margin-top:10px">Zona Oeste<br>y alrededores.</h2>
+      <div class="zone">
+        <ul><li>Ramos Mejía</li><li>Haedo</li><li>Morón</li><li>Castelar</li><li>Ituzaingó</li><li>San Justo</li><li>Ciudadela</li><li>Villa Luzuriaga</li></ul>
+        <div class="hours">
+          <div><span>Lunes a sábado</span><span>8 a 20 h</span></div>
+          <div><span>Domingos y feriados</span><span>9 a 14 h</span></div>
+          <div class="u"><span>Urgencias</span><span>Las 24 h</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec last" aria-labelledby="t-last"><span class="jt" aria-hidden="true"></span>
+      <div class="sink" id="sink">
+        <span class="sdrop" aria-hidden="true"></span><span class="ring" aria-hidden="true"><i></i><i></i></span>
+        <h3 class="k" id="t-last">Una pérdida<br>no espera.</h3>
+        <p>La página tampoco. Escribinos y en minutos tenés respuesta.</p>
+        <div class="ctas"><a class="btn b-water" href="#pedido">Armar mensaje</a><button class="btn b-line" type="button" data-demo="call">Llamar</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="case w" id="caso" aria-labelledby="t-case">
+  <div class="in">
+    <p class="eb">Detrás del concepto · 973 web studio</p>
+    <h2 id="t-case">Una página que funciona como un caño.</h2>
+    <div class="facts"><span>Rubro: plomería</span><span>Concepto propio, no es un cliente</span><span>Sin librerías</span><span>Menos de 300 KB, con tipografías</span></div>
+    <div class="cgrid">
+      <div><h3>El problema</h3><p>Quien busca un plomero tiene agua en el piso. No quiere leer: quiere saber si le contestan rápido y cómo escribir.</p></div>
+      <div><h3>La idea</h3><p>La página es una cañería. El agua sube en la portada y un caño recorre todo el sitio hasta terminar en el mensaje de WhatsApp.</p></div>
+      <div><h3>Lo que busca</h3><p>Menos ida y vuelta: el plomero recibe un mensaje que ya dice qué pasa, qué tan urgente es y en qué barrio.</p></div>
+    </div>
+    <div class="dec">
+      <div><b>01</b><h4>El mensaje sale armado</h4><p>El cliente toca qué le pasa y ve el mensaje antes de enviarlo. Nada de formularios largos.</p></div>
+      <div><b>02</b><h4>Siempre hay un botón a mano</h4><p>Después de la portada aparece una barra fija con WhatsApp y llamada, porque nadie vuelve arriba a buscar el teléfono.</p></div>
+      <div><b>03</b><h4>El movimiento tiene un porqué</h4><p>El agua que sube y el caño que se llena guían la lectura hacia el contacto; no están para decorar.</p></div>
+      <div><b>04</b><h4>Rápida con datos móviles</h4><p>Sin librerías ni fotos pesadas: dibujos hechos con código. Respeta a quien prefiere menos movimiento.</p></div>
+    </div>
+    <div class="cta973">
+      <p>¿Querés una página así para tu oficio?</p>
+      <a class="btn" href="https://wa.me/5491132089305?text=Hola%2C%20vi%20la%20demo%20Gota%20de%20973%20web%20studio%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20negocio." rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Escribirle a 973</a>
+    </div>
+    <div class="foot"><a href="/">← Volver a 973 web studio</a><span>Gota es un concepto. Nombres, zona y horarios son de ejemplo.</span></div>
+  </div>
+</section>
+
+<nav class="dock" id="dock" aria-label="Contacto rápido"><div>
+  <a class="btn b-water" href="#pedido">WhatsApp</a><button class="btn b-line" type="button" data-demo="call">Llamar</button>
+</div></nav>
+
+<dialog id="dlg" aria-labelledby="dlgT">
+  <h2 id="dlgT">En una página real…</h2>
+  <p id="dlgP">…este botón abre WhatsApp con este mensaje listo para enviar:</p>
+  <p class="bubble" id="dlgMsg"></p>
+  <div class="row"><a class="btn b-ink" href="#caso" id="dlgCase">Ver el caso</a><button class="btn b-line" type="button" id="dlgClose">Seguir mirando</button></div>
+</dialog>
+
+<script>
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm) document.documentElement.classList.add('rm');
+  function $(s){return document.querySelector(s)} function $$(s){return [].slice.call(document.querySelectorAll(s))}
+  function cl(v,a,b){return Math.max(a,Math.min(b,v))}
+
+  // Copia "mojada" de la portada: el mismo contenido en blanco, recortado por el nivel del agua.
+  var dry=$('#dry'), water=$('#water'), heroIn=$('#heroIn'), hero=$('#hero');
+  var wet=dry.cloneNode(true); wet.removeAttribute('id'); wet.setAttribute('inert','');
+  [].forEach.call(wet.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});
+  water.appendChild(wet);
+
+  // Mensaje armado
+  var form=$('#form'), msg=$('#msg'), barrio=$('#barrio');
+  function text(){
+    var p=form.querySelector('input[name=p]:checked').value, u=form.querySelector('input[name=u]:checked').value==='1';
+    var b=barrio.value.trim().replace(/\s+/g,' ');
+    return 'Hola Gota, '+p+'. '+(u?'Es urgente. ':'No es urgente. ')+(b?'Estoy en '+b+'. ':'')+(u?'¿Pueden venir hoy?':'¿Cuándo podrían venir?');
+  }
+  function upd(){ msg.firstChild.nodeValue=text(); }
+  form.addEventListener('change',upd); barrio.addEventListener('input',upd); upd();
+
+  // Diálogo de demo
+  var dlg=$('#dlg'), dlgP=$('#dlgP'), dlgMsg=$('#dlgMsg');
+  $$('[data-demo]').forEach(function(b){ b.addEventListener('click',function(){
+    if(b.dataset.demo==='wa'){ dlgP.textContent='…este botón abre WhatsApp con el mensaje listo para enviar:'; dlgMsg.textContent=text(); dlgMsg.hidden=false; }
+    else { dlgP.textContent='…este botón llama directo al plomero con un toque. Como Gota es un concepto, no hay un número real.'; dlgMsg.hidden=true; }
+    if(dlg.showModal) dlg.showModal(); else alert(dlgP.textContent);
+  }); });
+  $('#dlgClose').addEventListener('click',function(){dlg.close()});
+  $('#dlgCase').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+
+  // Scroll: nivel del agua, caño que se llena, barra fija
+  var caso=$('#caso'), run=$('#run'), fill=$('#fill'), tip=$('#tip'), jts=$$('.jt'), dock=$('#dock'), sink=$('#sink'), ticking=false;
+  function frame(){
+    ticking=false;
+    var r=hero.getBoundingClientRect(), t=r.height-innerHeight, hp=t>0?cl(-r.top/t,0,1):0;
+    dock.classList.toggle('on', r.bottom<innerHeight*.5 && caso.getBoundingClientRect().top>innerHeight*.7);
+    sink.style.setProperty('--sh',sink.offsetHeight+'px');
+    if(rm) return;
+    var lv=.035+.965*(hp*hp*(3-2*hp));
+    heroIn.style.setProperty('--lv',lv.toFixed(4));
+    var rr=run.getBoundingClientRect(), f=cl((innerHeight*.62-rr.top)/rr.height,0,1);
+    run.style.setProperty('--fill',f.toFixed(4));
+    tip.style.opacity=(f>0&&f<1)?1:0;
+    var y=f*rr.height;
+    jts.forEach(function(j){ j.classList.toggle('on', j.parentNode.offsetTop+j.offsetTop<=y+8); });
+  }
+  function onScroll(){ if(!ticking){ticking=true;requestAnimationFrame(frame)} }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll);
+  frame();
+})();
+</script>
+</body></html>
