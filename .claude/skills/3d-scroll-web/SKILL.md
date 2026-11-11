@@ -60,6 +60,10 @@ Patrones de código listos: ver [references/patterns.md](references/patterns.md)
 - Un solo `<canvas>` WebGL por página. Geometrías y texturas chicas; texturas en `.webp`/`.ktx2`; modelos < 1 MB.
 - `will-change` solo durante la animación, no en todo el sitio.
 - Imágenes con `width`/`height` para no tener saltos de layout (CLS).
+- CSS 3D (`transform-style: preserve-3d`): `opacity < 1`, `filter`, `overflow` distinto de visible, `clip-path`
+  o una animación de `opacity` activa (aunque esté en su estado final con `fill: both`) **aplanan** el 3D.
+  Quitar la animación de entrada al terminar (`animationend` → `animation: none`) y animar la entrada con
+  `translate` (propiedad individual) para no pisar el `transform` que pone el JS. Ejemplo real: el 973 del hero en `index.html`.
 - Probar en Chrome con CPU throttling 4x y en un viewport de 390 px: debe ir a ~60 fps sin cortes.
 
 ## 5. Accesibilidad y fallback
